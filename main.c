@@ -65,6 +65,10 @@ int main(int argc, char **argv) {
 		printf("Adding components from %s...\n", file);
 		uint8_t *img = stbi_load(file, &x, &y, &n, 3);
 		assert(x == w && y == h && n == 3);
+		if (img == NULL) {
+			nob_log(NOB_ERROR, "Couldn't load image file '%s'", file);
+			continue;
+		}
 		for (size_t i = 0; i < w*h; ++i) {
 			acc_img[3*i + 0] += img[3*i + 0];
 			acc_img[3*i + 1] += img[3*i + 1];
