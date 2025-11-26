@@ -14,6 +14,24 @@ I got the idea from a blog post I read a year or two ago, [The Overlooked Techni
 
 (I think I did implement it at some point in Python using PIL, but man it's so much more fun – and, imo, simpler – to implement it in C with stb and nob)
 
+## Example output
+
+### Blended images of the Lisbon Falls
+
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images0.png)
+
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images1.png)
+
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images2.png)
+
+![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos0.png)
+
+![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos1.png)
+
+### Blended images of the Berlin Falls
+
+![Image of the Berlin Falls composed from ten photos](./waterfall_images3.png)
+
 ## Copying
 
 This program is set free under the [Unlicense](https://unlicense.org/), and all the associated media is set free under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)![CC](https://mirrors.creativecommons.org/presskit/icons/cc.svg)![0](https://mirrors.creativecommons.org/presskit/icons/zero.svg).
