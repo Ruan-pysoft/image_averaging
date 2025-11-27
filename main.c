@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 		const char *file = nob_temp_sprintf("images/%s", *it);
 		if (nob_get_file_type(file) != NOB_FILE_REGULAR) continue;
 
-		printf("Found image: %s\n", file);
+		nob_log(NOB_INFO, "Found image: %s", file);
 		if (num_files == 0) {
 			stbi_info(file, &x, &y, NULL);
 			w = x;
@@ -52,9 +52,9 @@ int main(int argc, char **argv) {
 		++num_files;
 	}
 	assert(num_files != 0);
-	printf("No. of images found: %lu\n", num_files);
+	nob_log(NOB_INFO, "No. of images found: %lu", num_files);
 
-	printf("Image dimensions: %lux%lu\n", w, h);
+	nob_log(NOB_INFO, "Image dimensions: %lux%lu", w, h);
 
 	acc_img = calloc(w*h, 6);
 	final_img = calloc(w*h, 3);
@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
 	nob_da_foreach(const char *, it, &image_files) {
 		const char *file = nob_temp_sprintf("images/%s", *it);
 		if (nob_get_file_type(file) != NOB_FILE_REGULAR) continue;
-		printf("Adding components from %s...\n", file);
+		nob_log(NOB_INFO, "Adding components from %s...", file);
 		uint8_t *img = stbi_load(file, &x, &y, &n, 3);
 		assert(x == w && y == h && n == 3);
 		if (img == NULL) {
@@ -76,14 +76,14 @@ int main(int argc, char **argv) {
 		}
 		stbi_image_free(img);
 	}
-	printf("Calculating average image...\n");
+	nob_log(NOB_INFO, "Calculating average image...");
 	for (size_t i = 0; i < w*h; ++i) {
 		final_img[3*i + 0] = acc_img[3*i + 0] / num_files;
 		final_img[3*i + 1] = acc_img[3*i + 1] / num_files;
 		final_img[3*i + 2] = acc_img[3*i + 2] / num_files;
 	}
 
-	printf("Writing image file!\n");
+	nob_log(NOB_INFO, "Writing image file!");
 	stbi_write_jpg("output.jpg", w, h, 3, final_img, 3*w);
 }
 
