@@ -11,9 +11,6 @@ int main(int argc, char **argv) {
 	if (!nob_cmd_run(&cmd)) return 1;
 
 	NOB_GO_REBUILD_URSELF(argc, argv);
-
-	nob_cmd_append(&cmd, argv[0]);
-	if (!nob_cmd_run(&cmd)) return 1;
 }
 #else
 
@@ -32,6 +29,7 @@ int main(int argc, char **argv) {
 #include "stb_image_write.h"
 
 size_t num_files;
+int x, y, n;
 size_t w, h;
 uint16_t *acc_img;
 uint8_t *final_img;
@@ -41,18 +39,21 @@ int main(int argc, char **argv) {
 
 	Nob_File_Paths image_files = {0};
 	nob_read_entire_dir("images/", &image_files);
-	assert(image_files.count != 0);
+	num_files = 0;
 	nob_da_foreach(const char *, it, &image_files) {
 		const char *file = nob_temp_sprintf("images/%s", *it);
 		if (nob_get_file_type(file) != NOB_FILE_REGULAR) continue;
-		printf("Found image: %s\n", file);
-	}
 
-	num_files = image_files.count;
-	int x, y, n;
-	stbi_info(nob_temp_sprintf("images/%s", image_files.items[0]), &x, &y, &n);
-	w = x;
-	h = y;
+		printf("Found image: %s\n", file);
+		if (num_files == 0) {
+			stbi_info(file, &x, &y, NULL);
+			w = x;
+			h = y;
+		}
+		++num_files;
+	}
+	assert(num_files != 0);
+	printf("No. of images found: %lu\n", num_files);
 
 	printf("Image dimensions: %lux%lu\n", w, h);
 
