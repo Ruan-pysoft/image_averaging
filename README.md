@@ -6,7 +6,7 @@ The program will process all images in the `images/` folder, on the assumption t
 
 Simply bootstrap with `cc -o main main.c` and then run `./main`. The program acts as if it's a script, and will recompile itself when it is changed.
 
-In `media_raw/` is some images and videos I took of a waterfall I visited, which were used to generate the `waterfall*.png` images.
+In `media_raw/` is some images and videos I took of a waterfall I visited, which were used to generate the `waterfall*.jpg` images.
 
 You can use the scripts `./extract_photos.sh` to copy a series of photos from `media_raw/` into `images/`, or you can use one of `./extract_frames.sh` or `./extract_frames2.sh` to extract frames directly out of a video into the `images/` folder. Extracting frames from a video will trim the video's length, to cut out the motion associated with pressing the record button (I didn't have anything other than my hands and a railing to hold my phone with).
 
@@ -18,19 +18,19 @@ I got the idea from a blog post I read a year or two ago, [The Overlooked Techni
 
 ### Blended images of the Lisbon Falls
 
-![Image of the Lisbon Falls composed from ten photos](./waterfall_images0.png)
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images0.jpg)
 
-![Image of the Lisbon Falls composed from ten photos](./waterfall_images1.png)
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images1.jpg)
 
-![Image of the Lisbon Falls composed from ten photos](./waterfall_images2.png)
+![Image of the Lisbon Falls composed from ten photos](./waterfall_images2.jpg)
 
-![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos0.png)
+![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos0.jpg)
 
-![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos1.png)
+![Image of the Lisbon Falls composed from a short video clip](./waterfall_videos1.jpg)
 
 ### Blended images of the Berlin Falls
 
-![Image of the Berlin Falls composed from ten photos](./waterfall_images3.png)
+![Image of the Berlin Falls composed from ten photos](./waterfall_images3.jpg)
 
 ## Copying
 

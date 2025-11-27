@@ -1,4 +1,3 @@
-#include <stdint.h>
 #define NOB_REBUILD_URSELF(binary_path, source_path) "gcc", "-DNOB_REBUILT", "-o", binary_path, source_path, "-lm"
 
 #ifndef NOB_REBUILT
@@ -85,7 +84,7 @@ int main(int argc, char **argv) {
 	}
 
 	printf("Writing image file!\n");
-	stbi_write_png("output.png", w, h, 3, final_img, 3*w);
+	stbi_write_jpg("output.jpg", w, h, 3, final_img, 3*w);
 }
 
 #endif
